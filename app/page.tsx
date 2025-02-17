@@ -1,4 +1,23 @@
 import Image from "next/image";
+import { 
+  ArrowRight, 
+  Play, 
+  Mic2, 
+  WavesIcon, 
+  BarChart3, 
+  FileText, 
+  Users, 
+  Upload,
+  DollarSign,
+  Zap,
+  Users2,
+  BadgeCheck,
+  Brain,
+  MessageSquareMore,
+  Languages,
+  Repeat
+} from "lucide-react";
+import FeatureShowcase from "@/components/FeatureShowcase";
 
 export default function Home() {
   return (
@@ -82,15 +101,11 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 lg:justify-start justify-center items-center">
                 <button className="group px-8 py-4 bg-gray-900 text-white text-[15px] font-medium rounded-full transition-all hover:shadow-xl hover:shadow-gray-200/30 hover:-translate-y-0.5 w-full sm:w-auto inline-flex items-center justify-center">
                   Start Creating Free
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="group px-8 py-4 text-[15px] font-medium rounded-full text border border-gray-200 hover:border-gray-300 transition-all hover:shadow-lg hover:bg-gray-50 hover:-translate-y-0.5 w-full sm:w-auto inline-flex items-center justify-center">
+                <button className="group px-8 py-4 text-[15px] font-medium rounded-full text-gray-900 border border-gray-200 hover:border-gray-300 transition-all hover:shadow-lg hover:bg-gray-50 hover:-translate-y-0.5 w-full sm:w-auto inline-flex items-center justify-center">
                   Watch Demo
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  </svg>
+                  <Play className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
@@ -138,13 +153,20 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white rounded-3xl transform transition-transform group-hover:-translate-y-2 duration-300"></div>
                 <div className="relative p-8 rounded-3xl border border-gray-100 hover:border-gray-200 transition-colors">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-indigo-50 mb-6">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-indigo-50 mb-6 group-hover:-translate-y-1 transition-transform">
                     <feature.icon className="w-6 h-6 text-indigo-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {feature.title}
+                    </h3>
+                    {feature.badge && (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-600">
+                        {feature.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -152,13 +174,122 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Features Footer */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-50 border border-gray-100">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-              <span className="text-sm font-medium text-gray-600">
-                New features added regularly
+          {/* Feature Showcase Component */}
+          <FeatureShowcase additionalFeatures={additionalFeatures} />
+        </div>
+      </section>
+
+      {/* Monetization Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+              <span className="text-sm font-medium text-indigo-800">Revenue Generation</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Turn your content into
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-900">
+                a thriving business
               </span>
+            </h2>
+            <p className="text-lg text-gray-600">
+              Powerful monetization tools that help you generate revenue while focusing on what matters most - creating great content.
+            </p>
+          </div>
+
+          {/* Monetization Features */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Smart Sponsorship Matching */}
+            <div className="relative bg-white rounded-3xl p-8 group transition-all">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-gray-50/50 to-white ring-1 ring-inset ring-gray-100 group-hover:ring-gray-200 transition-all"></div>
+              <div className="relative">
+                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-indigo-50 mb-6 group-hover:-translate-y-1 transition-transform">
+                  <DollarSign className="w-7 h-7 text-indigo-600" />
+                </div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-semibold text-gray-900">Smart Sponsorship Matching</h3>
+                  <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full">Automated</span>
+                </div>
+                <p className="text-gray-600 mb-6">AI-powered system that connects your podcast with relevant sponsors based on your content and audience demographics.</p>
+                <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BadgeCheck className="w-5 h-5 text-indigo-500" />
+                    <span>Brand Safety</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BadgeCheck className="w-5 h-5 text-indigo-500" />
+                    <span>Real-time Matching</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dynamic Ad Placement */}
+            <div className="relative bg-white rounded-3xl p-8 group transition-all">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-gray-50/50 to-white ring-1 ring-inset ring-gray-100 group-hover:ring-gray-200 transition-all"></div>
+              <div className="relative">
+                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-indigo-50 mb-6 group-hover:-translate-y-1 transition-transform">
+                  <Zap className="w-7 h-7 text-indigo-600" />
+                </div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-semibold text-gray-900">Dynamic Ad Placement</h3>
+                  <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full">Smart</span>
+                </div>
+                <p className="text-gray-600 mb-6">Intelligent ad insertion that finds the perfect moments in your content for seamless sponsor messages.</p>
+                <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BadgeCheck className="w-5 h-5 text-indigo-500" />
+                    <span>Natural Flow</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BadgeCheck className="w-5 h-5 text-indigo-500" />
+                    <span>High Engagement</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Fan Engagement */}
+            <div className="relative bg-white rounded-3xl p-8 group transition-all">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-gray-50/50 to-white ring-1 ring-inset ring-gray-100 group-hover:ring-gray-200 transition-all"></div>
+              <div className="relative">
+                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-indigo-50 mb-6 group-hover:-translate-y-1 transition-transform">
+                  <Users2 className="w-7 h-7 text-indigo-600" />
+                </div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-semibold text-gray-900">Fan Engagement</h3>
+                  <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full">Tokenized</span>
+                </div>
+                <p className="text-gray-600 mb-6">Create exclusive content and rewards for your most engaged listeners through tokenized membership tiers.</p>
+                <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BadgeCheck className="w-5 h-5 text-indigo-500" />
+                    <span>Community Building</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BadgeCheck className="w-5 h-5 text-indigo-500" />
+                    <span>Recurring Revenue</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Revenue Stats */}
+          <div className="mt-16 grid sm:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-gray-900 mb-2">45%</div>
+              <p className="text-gray-600">Average Revenue Increase</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-gray-900 mb-2">10K+</div>
+              <p className="text-gray-600">Active Sponsors</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-gray-900 mb-2">$2.5M+</div>
+              <p className="text-gray-600">Creator Earnings</p>
             </div>
           </div>
         </div>
@@ -167,59 +298,76 @@ export default function Home() {
   );
 }
 
-const features = [
-  {
-    title: "AI Voice Generation",
-    description: "Create natural-sounding voices with our advanced AI technology. Perfect for narration and dialogue.",
-    icon: ({ className }: { className: string }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-      </svg>
-    )
-  },
-  {
-    title: "Smart Audio Editing",
-    description: "Edit your podcasts with ease using our intuitive tools. Remove noise, add effects, and enhance quality.",
-    icon: ({ className }: { className: string }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-      </svg>
-    )
-  },
-  {
-    title: "Content Analysis",
-    description: "Get insights into your podcast performance with detailed analytics and audience engagement metrics.",
-    icon: ({ className }: { className: string }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    )
-  },
+// First, let's create a separate array for additional features
+const additionalFeatures = [
   {
     title: "Automated Transcription",
     description: "Convert your audio to text automatically with high accuracy. Perfect for show notes and SEO.",
     icon: ({ className }: { className: string }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
+      <FileText className={className} />
     )
   },
   {
     title: "Collaboration Tools",
     description: "Work seamlessly with your team. Share projects, leave comments, and manage permissions.",
     icon: ({ className }: { className: string }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
+      <Users className={className} />
     )
   },
   {
     title: "One-Click Publishing",
     description: "Publish your podcasts to all major platforms with a single click. Reach your audience everywhere.",
     icon: ({ className }: { className: string }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-      </svg>
+      <Upload className={className} />
+    )
+  },
+  // Move any other features here
+];
+
+// Keep only 6 main features in the features array
+const features = [
+  {
+    title: "AI Voice Generation",
+    description: "Create natural-sounding voices with our advanced AI technology. Perfect for narration and dialogue.",
+    icon: ({ className }: { className: string }) => (
+      <Mic2 className={className} />
+    )
+  },
+  {
+    title: "AI-Generated Podcasts",
+    description: "Emotionally intelligent content generation with auto-adjusted tone and emphasis for natural-sounding delivery.",
+    icon: ({ className }: { className: string }) => (
+      <Brain className={className} />
+    ),
+    badge: "New"
+  },
+  {
+    title: "Interactive Engagement",
+    description: "Foster audience connection with real-time Q&A, polls, and dynamic feedback systems during live sessions.",
+    icon: ({ className }: { className: string }) => (
+      <MessageSquareMore className={className} />
+    ),
+    badge: "Beta"
+  },
+  {
+    title: "Multi-Language Support",
+    description: "Break language barriers with instant translation and narration in native-level fluency across languages.",
+    icon: ({ className }: { className: string }) => (
+      <Languages className={className} />
+    )
+  },
+  {
+    title: "Content Repurposing",
+    description: "Automatically transform your podcasts into videos, social media snippets, and other engaging formats.",
+    icon: ({ className }: { className: string }) => (
+      <Repeat className={className} />
+    )
+  },
+  {
+    title: "Smart Audio Editing",
+    description: "Edit your podcasts with ease using our intuitive tools. Remove noise, add effects, and enhance quality.",
+    icon: ({ className }: { className: string }) => (
+      <WavesIcon className={className} />
     )
   }
 ];
