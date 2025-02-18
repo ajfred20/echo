@@ -250,90 +250,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dashboard Preview Section */}
-      <section className="py-24 bg-gray-50/50">
+      {/* Partners & Integrations Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="max-w-2xl mx-auto text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 mb-6">
-              <span className="text-sm font-medium text-indigo-600">Intuitive Interface</span>
+              <span className="text-sm font-medium text-indigo-600">Seamless Integration</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Powerful dashboard for
+              Works with your
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-900">
-                complete control
+                favorite platforms
               </span>
             </h2>
             <p className="text-lg text-gray-600">
-              Everything you need to create, manage, and analyze your podcasts in one place
+              Integrate with the tools you already use and love. Publish everywhere your audience is.
             </p>
           </div>
 
-          {/* Dashboard Preview */}
-          <div className="relative">
-            {/* Background Decoration */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-50/50 to-purple-50/50 rounded-3xl -mx-6 -my-6"></div>
-
-            {/* Dashboard Frame */}
-            <div className="relative bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
-              {/* Dashboard Header */}
-              <div className="px-8 py-6 border-b border-gray-100 flex items-center justify-between">
-                <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+          {/* Partners Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {partners.map((partner, index) => (
+              <div 
+                key={index}
+                className="relative group bg-white rounded-2xl border border-gray-100 p-8 hover:border-gray-200 transition-all hover:-translate-y-1"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center p-2">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                  <div className="text-sm font-medium text-gray-600">Echo Dashboard</div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-8 w-48 bg-gray-50 rounded-md"></div>
-                  <div className="h-8 w-8 bg-gray-50 rounded-md"></div>
-                </div>
-              </div>
-
-              {/* Dashboard Content */}
-              <div className="grid lg:grid-cols-4 gap-6 p-8">
-                {/* Sidebar */}
-                <div className="lg:col-span-1 space-y-4">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="h-10 bg-gray-50 rounded-lg w-full"></div>
-                  ))}
-                </div>
-
-                {/* Main Content */}
-                <div className="lg:col-span-3 space-y-6">
-                  {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-6">
-                    {stats.map((stat, index) => (
-                      <div key={index} className="bg-white rounded-xl border border-gray-100 p-6">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
-                            <stat.icon className="w-5 h-5 text-indigo-600" />
-                          </div>
-                          <div className="text-sm font-medium text-gray-600">{stat.label}</div>
-                        </div>
-                        <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Feature Callouts */}
-                  {callouts.map((callout, index) => (
-                    <div 
-                      key={index}
-                      className="absolute"
-                      style={callout.style}
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {partner.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {partner.description}
+                    </p>
+                    <Link 
+                      href={partner.link}
+                      className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-700"
                     >
-                      <div className="bg-white rounded-lg shadow-lg p-4 max-w-xs">
-                        <div className="font-medium text-gray-900 mb-1">{callout.title}</div>
-                        <div className="text-sm text-gray-600">{callout.description}</div>
-                      </div>
-                      <div className="w-2 h-2 bg-white rounded-full absolute -left-1 top-1/2 -translate-y-1/2 shadow-lg"></div>
-                    </div>
-                  ))}
+                      Learn more
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Distribution Platforms */}
+          <div className="text-center">
+            <div className="text-sm font-medium text-gray-600 mb-8">
+              Distribute your podcast to all major platforms
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-75">
+              {platforms.map((platform, index) => (
+                <Image
+                  key={index}
+                  src={platform.logo}
+                  alt={platform.name}
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto grayscale hover:grayscale-0 transition-all"
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -537,39 +525,65 @@ const steps = [
   }
 ];
 
-// Add these arrays for the dashboard stats and callouts
-const stats = [
+// Add these arrays for partners and platforms
+const partners = [
   {
-    label: "Total Listens",
-    value: "24.5K",
-    icon: BarChart3
+    name: "Spotify for Podcasters",
+    description: "Direct integration with Spotify's podcast platform for seamless publishing and analytics.",
+    logo: "/partners/spotify.svg",
+    link: "#"
   },
   {
-    label: "Avg. Engagement",
-    value: "87%",
-    icon: Users2
+    name: "Adobe Audition",
+    description: "Export directly to Adobe Audition for advanced audio editing and production.",
+    logo: "/partners/adobe.svg",
+    link: "#"
   },
   {
-    label: "Episodes",
-    value: "156",
-    icon: Mic2
+    name: "Zapier",
+    description: "Automate your workflow by connecting Echo with thousands of apps.",
+    logo: "/partners/zapier.svg",
+    link: "#"
+  },
+  {
+    name: "Canva",
+    description: "Create stunning podcast artwork and promotional materials with Canva integration.",
+    logo: "/partners/canva.svg",
+    link: "#"
+  },
+  {
+    name: "Mailchimp",
+    description: "Connect with your audience through automated email marketing campaigns.",
+    logo: "/partners/mailchimp.svg",
+    link: "#"
+  },
+  {
+    name: "Google Analytics",
+    description: "Deep insights into your audience behavior and content performance.",
+    logo: "/partners/google-analytics.svg",
+    link: "#"
   }
 ];
 
-const callouts = [
+const platforms = [
   {
-    title: "One-Click Repurposing",
-    description: "Automatically transform your podcast into social media snippets, blog posts, and more.",
-    style: { top: "20%", right: "-320px" }
+    name: "Apple Podcasts",
+    logo: "/platforms/apple-podcasts.svg"
   },
   {
-    title: "Real-time Analytics",
-    description: "Track listener engagement, demographics, and content performance in real-time.",
-    style: { top: "50%", right: "-320px" }
+    name: "Spotify",
+    logo: "/platforms/spotify.svg"
   },
   {
-    title: "AI-Powered Insights",
-    description: "Get smart recommendations to improve your content and grow your audience.",
-    style: { top: "80%", right: "-320px" }
+    name: "Google Podcasts",
+    logo: "/platforms/google-podcasts.svg"
+  },
+  {
+    name: "Amazon Music",
+    logo: "/platforms/amazon-music.svg"
+  },
+  {
+    name: "Stitcher",
+    logo: "/platforms/stitcher.svg"
   }
 ];
