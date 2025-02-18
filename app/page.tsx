@@ -17,7 +17,7 @@ import {
   Languages,
   Repeat
 } from "lucide-react";
-import FeatureShowcase from "@/components/FeatureShowcase";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -43,7 +43,12 @@ export default function Home() {
 
             {/* Main Navigation */}
             <div className="hidden md:flex items-center gap-14">
-              <a href="#" className="text-[15px] font-medium text-gray-600 hover:text-gray-900 transition-all hover:-translate-y-0.5">Features</a>
+              <Link 
+                href="/features" 
+                className="text-[15px] font-medium text-gray-600 hover:text-gray-900 transition-all hover:-translate-y-0.5"
+              >
+                Features
+              </Link>
               <a href="#" className="text-[15px] font-medium text-gray-600 hover:text-gray-900 transition-all hover:-translate-y-0.5">Solutions</a>
               <a href="#" className="text-[15px] font-medium text-gray-600 hover:text-gray-900 transition-all hover:-translate-y-0.5">Pricing</a>
               <a href="#" className="text-[15px] font-medium text-gray-600 hover:text-gray-900 transition-all hover:-translate-y-0.5">Resources</a>
@@ -115,12 +120,12 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-50 to-blue-50 rounded-3xl"></div>
               <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-3xl"></div>
               <Image
-                src="/podcast-setup.jpg" // Using a new image from Unsplash
-                alt="Modern Podcast Studio Setup"
-                fill
-                className="object-cover rounded-3xl p-4"
-                priority
-              />
+              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc"
+              alt="Modern Podcast Studio Setup"
+              fill
+              className="object-cover rounded-3xl p-4"
+              priority
+            />
               <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-gray-900/5"></div>
             </div>
           </div>
@@ -173,9 +178,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          {/* Feature Showcase Component */}
-          <FeatureShowcase additionalFeatures={additionalFeatures} />
         </div>
       </section>
 
@@ -303,25 +305,18 @@ const additionalFeatures = [
   {
     title: "Automated Transcription",
     description: "Convert your audio to text automatically with high accuracy. Perfect for show notes and SEO.",
-    icon: ({ className }: { className: string }) => (
-      <FileText className={className} />
-    )
+    icon: FileText
   },
   {
     title: "Collaboration Tools",
     description: "Work seamlessly with your team. Share projects, leave comments, and manage permissions.",
-    icon: ({ className }: { className: string }) => (
-      <Users className={className} />
-    )
+    icon: Users
   },
   {
     title: "One-Click Publishing",
     description: "Publish your podcasts to all major platforms with a single click. Reach your audience everywhere.",
-    icon: ({ className }: { className: string }) => (
-      <Upload className={className} />
-    )
-  },
-  // Move any other features here
+    icon: Upload
+  }
 ];
 
 // Keep only 6 main features in the features array
@@ -329,45 +324,33 @@ const features = [
   {
     title: "AI Voice Generation",
     description: "Create natural-sounding voices with our advanced AI technology. Perfect for narration and dialogue.",
-    icon: ({ className }: { className: string }) => (
-      <Mic2 className={className} />
-    )
+    icon: Mic2
   },
   {
     title: "AI-Generated Podcasts",
     description: "Emotionally intelligent content generation with auto-adjusted tone and emphasis for natural-sounding delivery.",
-    icon: ({ className }: { className: string }) => (
-      <Brain className={className} />
-    ),
+    icon: Brain,
     badge: "New"
   },
   {
     title: "Interactive Engagement",
     description: "Foster audience connection with real-time Q&A, polls, and dynamic feedback systems during live sessions.",
-    icon: ({ className }: { className: string }) => (
-      <MessageSquareMore className={className} />
-    ),
+    icon: MessageSquareMore,
     badge: "Beta"
   },
   {
     title: "Multi-Language Support",
     description: "Break language barriers with instant translation and narration in native-level fluency across languages.",
-    icon: ({ className }: { className: string }) => (
-      <Languages className={className} />
-    )
+    icon: Languages
   },
   {
     title: "Content Repurposing",
     description: "Automatically transform your podcasts into videos, social media snippets, and other engaging formats.",
-    icon: ({ className }: { className: string }) => (
-      <Repeat className={className} />
-    )
+    icon: Repeat
   },
   {
     title: "Smart Audio Editing",
     description: "Edit your podcasts with ease using our intuitive tools. Remove noise, add effects, and enhance quality.",
-    icon: ({ className }: { className: string }) => (
-      <WavesIcon className={className} />
-    )
+    icon: WavesIcon
   }
 ];
