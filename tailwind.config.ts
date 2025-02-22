@@ -11,17 +11,25 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        'navy': {
-          800: '#1a1f2c',
-          900: '#0f172a',
-          950: '#0a0f1c',
-        },
-        'electric-blue': {
-          400: '#4dabf7',
-          500: '#228be6',
-          600: '#1971c2',
-        },
+        indigo: {
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81'
+        }
       },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+        'inter-tight': ['Inter Tight', 'sans-serif']
+      },
+      backgroundImage: {
+        'gradientbtn': 'linear-gradient(to right, #818cf8, #312e81)'
+      }
     },
   },
   plugins: [],
