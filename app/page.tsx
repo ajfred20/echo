@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, BarChart3, Sparkles, Link2, Mic2, Languages, AudioWaveformIcon, Zap, BarChart2, HeadphonesIcon, Palette, Shield, Link as LinkIcon, Check, Instagram, Twitter } from "lucide-react";
+import { ArrowRight, BarChart3, Sparkles, Link2, Mic2, Languages, AudioWaveformIcon, Zap, BarChart2, HeadphonesIcon, Palette, Shield, Link as LinkIcon, Check, Instagram, Twitter, AudioWaveform, ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
 import { navigation, stats } from "@/lib/constants";
 
@@ -18,15 +18,24 @@ export default function Home() {
 
             {/* Main Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navigation.main.map((item) => (
-                <Link 
-                  key={item.name}
-                  href={item.href} 
-                  className="nav-link"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <Link href="/features" className="nav-link">Features</Link>
+              <Link href="/pricing" className="nav-link">Pricing</Link>
+              <Link href="/resources" className="nav-link">Resources</Link>
+              <Link href="/community" className="nav-link">Community</Link>
+              
+              {/* Resources Dropdown */}
+              <div className="relative group">
+                <button className="nav-link flex items-center gap-1">
+                  Learn
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                <div className="absolute top-full -left-4 w-48 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                  <Link href="/academy" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">Podcast Academy</Link>
+                  <Link href="/guides" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">Creator Guides</Link>
+                  <Link href="/blog" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">Blog</Link>
+                  <Link href="/showcase" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">Showcase</Link>
+                </div>
+              </div>
             </div>
 
             {/* Auth Buttons */}
@@ -34,16 +43,17 @@ export default function Home() {
               <Link href="/login" className="nav-link">
                 Log in
               </Link>
-              <Link href="/signup" className="btn-primary">
+              <Link 
+                href="/signup" 
+                className="btn-primary"
+              >
                 Start creating
               </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button className="md:hidden p-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -109,6 +119,64 @@ export default function Home() {
                   <div className="text-sm text-gray-600">{stat.name}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platforms Integration Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Plug In. Power Up.
+              <span className="block">Dominate.</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
+              Get instant updates, automate your workflows, and run your podcast like a 
+              well-oiled machine—all without leaving the platforms you already love.
+            </p>
+
+            {/* Platform Icons */}
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <Image
+                src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png"
+                alt="Spotify"
+                width={160}
+                height={48}
+                className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+              />
+              <Image
+                src="/assets/pocket-casts-logo.svg"
+                alt="Pocket Casts"
+                width={160}
+                height={48}
+                className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+              />
+              <Image
+                src="https://www.apple.com/v/apple-podcasts/c/images/overview/hero_icon__c135x5gz14mu_large.png"
+                alt="Apple Podcasts"
+                width={160}
+                height={48}
+                className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+              />
+              <Image
+                src="/assets/soundcloud-logo.svg"
+                alt="SoundCloud"
+                width={120}
+                height={32}
+                className="h-6 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+
+            {/* Background Pattern */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/0 rounded-3xl"></div>
+              <div className="grid grid-cols-5 gap-4 p-8 rounded-3xl bg-gray-50/30 border border-gray-100">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="aspect-[4/3] rounded-xl bg-white shadow-sm"></div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -206,6 +274,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mission Statement Section */}
+      
 
       {/* Perks Section */}
       <section className="py-24 bg-white">
@@ -381,6 +452,29 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+              We believe podcast creation should be seamless, intuitive, and lightning fast
+              <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-900 leading-none">
+                and we're here to make that happen.
+              </span>
+            </h2>
+            
+            <div className="mt-8 text-xl sm:text-2xl text-gray-600 space-y-6">
+              <p>
+                Driven by innovation, we integrate AI into the tools you already love, 
+                making your podcast creation easier and your creative goals more attainable.
+              </p>
+              <p className="text-gray-500">
+                We don't just adapt to change; we create it.
+              </p>
             </div>
           </div>
         </div>
