@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { ClerkProvider } from '@clerk/nextjs';
+import Navigation from "./components/Navigation";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -21,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <ClerkProvider>
+          <Navigation />
+          <Providers>{children}</Providers>
+        </ClerkProvider>
       </body>
     </html>
   );
