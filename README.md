@@ -8,10 +8,10 @@ Check out the live site at
 
 ## ✨ Features
 
-- ⚡️ Next.js 15 with App Router
+- ⚡️ Next.js 15 with App Router and Turbopack 
 - 🎨 Tailwind CSS for styling
-- 🎬 Framer Motion animations
-- 📱 Fully responsive design
+- 🔒 Secure Authentication Pages
+- 📱 Fully responsive
 - 🌙 Modern UI components
 - 🚀 Fast performance
 
