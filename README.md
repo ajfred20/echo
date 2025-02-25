@@ -1,12 +1,10 @@
-# Maison - Furniture Brand E-commerce Template ⚡
+# Echo - AI Powered Podcast Generator for Solo Content Creators ⚡
 
-![Maison Preview](https://raw.githubusercontent.com/ajfred20/maison/main/public/assets/preview.png)
-
-> 🌟 A modern furniture brand e-commerce website built with Next.js 15, Tailwind CSS, and Framer Motion
+> 🌟 A minimal podcast content creation web app built with Next.js 15, Tailwind CSS, Clerk, Supabase and More
 
 ## 🔴 Live Preview
 
-Check out the live site at [Maison](https://maison-aj.vercel.app)
+Check out the live site at
 
 ## ✨ Features
 
