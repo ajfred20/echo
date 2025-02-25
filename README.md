@@ -24,8 +24,8 @@ After cloning the repository, navigate to the `app` folder and edit the `page.ts
 To get started, clone the repository using the following command:
 
 ```bash
-git clone https://github.com/ajfred20/maison.git
-cd maison
+git clone https://github.com/ajfred20/echo.git
+cd echo
 ```
 
 ### Install Dependencies
