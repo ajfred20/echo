@@ -37,7 +37,7 @@ export default function SignUpPage() {
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Create your account</h1>
             <p className="text-gray-600">Start creating amazing podcasts today</p>
           </div>
-          <SignUp appearance={clerkTheme} />
+          <SignUp appearance={clerkTheme} routing="hash" />
         </div>
       </div>
     </div>
